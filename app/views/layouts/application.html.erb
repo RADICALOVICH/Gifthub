@@ -14,6 +14,40 @@
   </head>
 
   <body>
+  <div class="text-right">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1"><%= link_to 'GiftHub', root_path, class: 'nav-link px-2 black'%></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-text-right" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if !user_signed_in? %>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light me-2 text-bg-dark"><%= link_to "Войти", new_user_session_path, class: 'nav-link px-2 text-dark' %></button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light me-2 text-bg-dark"><%= link_to "Зарегистрироваться", new_user_registration_path, class: 'nav-link px-2 text-dark' %></button>
+        </li>
+        <% else %>
+        <li class="nav-item dropdown mr-auto btn btn-outline-light me-2 text-bg-dark">
+          <a class="nav-link dropdown-toggle nav-link px-2 text-black" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.first_name %> <%= current_user.last_name %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end text-bg-dark" aria-labelledby="navbarDropdown">
+            <li><%=link_to "Редактировать профиль",   edit_user_registration_path, class: "nav-link px-2 text-dar dropdown-item btn", type: "button"%></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%=link_to "Мои коллективы (заглушка)", new_user_session_path, class: "nav-link px-2 text-dark dropdown-item btn", type: "button"%></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= button_to "Выйти", destroy_user_session_path, method: :delete, class: "nav-link px-2 text-dark dropdown-item btn btn-lg", id: 'ex_btn'%></li>
+            </ul>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  </div>
     <p class="notice"><%= notice %></p> 
     <p class="alert"><%= alert %></p> 
     <%= yield %>
