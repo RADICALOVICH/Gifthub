@@ -48,8 +48,11 @@
     </div>
   </nav>
   </div>
-    <p class="notice"><%= notice %></p> 
-    <p class="alert"><%= alert %></p> 
+    <% flash.each do |type, msg| %>
+      <div class='alert alert-info'>
+        <strong id='msg'><%= msg %></strong>
+      </div> 
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+  <%= @group.title %>
+  <% if @group.avatar.present?%>
+    <div> <%= image_tag(@group.avatar) %></div>
+  <% end %>
+
+<div>
+  <%= link_to "Edit this group", edit_group_path(@group) %> |
+  <%= link_to "Back to groups", groups_path %>
+
+  <%= button_to "Destroy this group", @group, method: :delete %>
+</div>

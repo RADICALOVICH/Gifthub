@@ -1,0 +1,20 @@
+<%= form_with(model: group) do |form| %>
+  <div class="field">
+    <%= form.label :title, 'Название коллектива' %><br />
+    <%= form.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, 'Краткое описание группы' %><br />
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar, 'Фото коллектива' %><br />
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
