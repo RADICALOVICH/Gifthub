@@ -4,7 +4,8 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    array = Member.where(user_id: current_user.id).pluck(:group_id)
+    @groups = Group.where(id: array)
   end
 
   # GET /groups/1 or /groups/1.json
@@ -27,8 +28,8 @@ class GroupsController < ApplicationController
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
-
     if @group.save
+      Member.create(user_id: current_user.id, group_id: @group.id, is_admin: true)
       flash[:notice] = 'Группа создана успешно'
       redirect_to group_url(@group)
     else

@@ -38,7 +38,7 @@
           <ul class="dropdown-menu dropdown-menu-end text-bg-dark" aria-labelledby="navbarDropdown">
             <li><%=link_to "Редактировать профиль",   edit_user_registration_path, class: "nav-link px-2 text-dar dropdown-item btn", type: "button"%></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%=link_to "Мои коллективы (заглушка)", new_user_session_path, class: "nav-link px-2 text-dark dropdown-item btn", type: "button"%></li>
+            <li><%=link_to "Мои коллективы", groups_path, class: "nav-link px-2 text-dark dropdown-item btn", type: "button"%></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= button_to "Выйти", destroy_user_session_path, method: :delete, class: "nav-link px-2 text-dark dropdown-item btn btn-lg", id: 'ex_btn'%></li>
             </ul>
