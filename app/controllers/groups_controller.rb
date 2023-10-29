@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :set_group, only: %i[ show edit update destroy]
   before_action :authenticate_user!, only: %i[ new show edit update create destroy index]
 
   # GET /groups or /groups.json
@@ -62,7 +62,8 @@ class GroupsController < ApplicationController
   end
 
   def list_of_users
-
+    array = Member.where(group_id: params[:id]).pluck(:user_id)
+    @users = User.where(id: array)
   end
 
   def calendar
@@ -70,7 +71,8 @@ class GroupsController < ApplicationController
   end
 
   def information
-
+    @group = Group.find(params[:id])
+    @admin_id = Member.find_by(group_id: params[:id], is_admin: true).user_id
   end
   
   private

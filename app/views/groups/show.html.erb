@@ -1,13 +1,24 @@
 <p style="color: green"><%= notice %></p>
-
-  <%= @group.title %>
-  <% if @group.avatar.present?%>
-    <div> <%= image_tag(@group.avatar) %></div>
+<div id = 'change_buttons'>
+  <% if current_page?(:controller => 'groups', :action => 'show') %>
+    <div id = 'btn'><%= button_to "members", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary' %></div>
+    <div id = 'btn'><%= button_to 'calendar', "/groups/calendar/#{@group.id}", class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to 'info', "/groups/information/#{@group.id}", class: 'btn btn-primary'%></div>
   <% end %>
-
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
-
-  <%= button_to "Destroy this group", @group, method: :delete %>
+  <% if current_page?(:controller => 'groups', :action => 'list_of_users') %>
+    <div id = 'btn'><%= button_to "members", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary disabled' %></div>
+    <div id = 'btn'><%= button_to 'calendar', "/groups/calendar/#{@group.id}", class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to 'info', "/groups/information/#{@group.id}", class: 'btn btn-primary'%></div>
+  <% end %>
+  <% if current_page?(:controller => 'groups', :action => 'calendar') %>
+    <div id = 'btn'><%= button_to "members", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary ' %></div>
+    <div id = 'btn'><%= button_to 'calendar', "/groups/calendar/#{@group.id}", class: 'btn btn-primary disabled'%></div>
+    <div id = 'btn'><%= button_to 'info', "/groups/information/#{@group.id}", class: 'btn btn-primary'%></div>
+  <% end %>
+  <% if current_page?(:controller => 'groups', :action => 'information') %>
+    <div id = 'btn'><%= button_to "members", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary ' %></div>
+    <div id = 'btn'><%= button_to 'calendar', "/groups/calendar/#{@group.id}", class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to 'info', "/groups/information/#{@group.id}", class: 'btn btn-primary disabled'%></div>
+  <% end %>
 </div>
+<div id='response-container'></div>
