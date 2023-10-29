@@ -1,3 +1,7 @@
 <% users.each do |user| %>
  <%= user.first_name %>
 <% end %>
+
+<% if current_user.id == admin_id %>
+  <%= link_to "Пригласить человека", "/groups/#{group.id}/invite_users" %>
+<% end %>

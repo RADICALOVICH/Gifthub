@@ -62,8 +62,10 @@ class GroupsController < ApplicationController
   end
 
   def list_of_users
+    @group = Group.find(params[:id])
     array = Member.where(group_id: params[:id]).pluck(:user_id)
     @users = User.where(id: array)
+    @admin_id = Member.find_by(group_id: params[:id], is_admin: true).user_id
   end
 
   def calendar
@@ -74,7 +76,27 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @admin_id = Member.find_by(group_id: params[:id], is_admin: true).user_id
   end
+
+  def add_user
+    if Member.find_by(user_id: params[:user_id], group_id: params[:group_id])
+      flash[:alert] = 'Вы уже вступили в эту группу'
+    else
+      Member.create(user_id: params[:user_id], group_id: params[:group_id])
+      flash[:notice] = 'Вы успешно вступили в группу'
+    end
+    redirect_to root_path
+  end
+
+  def invite_users
+    @group_id = params[:id]
+    @users = User.all
+  end
   
+  def send_email
+    GroupMailer.invite(params[:user_id], params[:group_id]).deliver_later
+    puts('ddk')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
