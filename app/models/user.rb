@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :confirmable, :async
   
   has_many :members
+  has_many :wishes
 end
