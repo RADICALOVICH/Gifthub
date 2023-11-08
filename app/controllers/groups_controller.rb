@@ -95,8 +95,15 @@ class GroupsController < ApplicationController
     GroupMailer.invite(params[:user_id], params[:group_id]).deliver_later
   end
 
-  def delete_user
-    Member.where(group_id: )
+  def remove_user
+    @group = Group.find(params[:id])
+    @user = User.find(params[:user_id])
+    if @group && @user
+      @group.members.find_by(user_id: @user.id).destroy
+      redirect_to @group, notice: "Пользователь удален из группы."
+    else
+      redirect_to @group, alert: "Не удалось удалить пользователя из группы."
+    end
   end
 
   private

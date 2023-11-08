@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :wishes
-  resources :groups
+  resources :groups do
+    member do
+      delete 'remove_user/:user_id', action: :remove_user, as: 'remove_user'
+    end
+  end
   devise_for :users
   root 'home#index'
   

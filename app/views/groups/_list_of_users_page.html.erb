@@ -8,9 +8,9 @@
       <h2><%= user.first_name %> <%= user.last_name %></h2>
       <p>Дата рождения: <%= user.date_of_birth %></p>
     </div>
-    <% if current_user.id == admin_id %>
+    <% if current_user.id == admin_id && user.id != current_user.id %>
       <div class="delete-button-container">
-        <%= button_to "Удалить пользователя", "/users/#{user.id}", method: :delete, class: "delete-button" %>
+       <%= button_to "Удалить пользователя", remove_user_group_path(@group, user.id), method: :delete, class: "delete-button" %>
       </div>
     <% end %>
   </div>
