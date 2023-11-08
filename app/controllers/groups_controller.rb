@@ -93,7 +93,10 @@ class GroupsController < ApplicationController
   
   def send_email
     GroupMailer.invite(params[:user_id], params[:group_id]).deliver_later
-    puts('ddk')
+  end
+
+  def delete_user
+    Member.where(group_id: )
   end
 
   private

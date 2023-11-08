@@ -1,14 +1,15 @@
 <div class="group-info">
-  <% if group.avatar.present? %>
-    <%= image_tag group.avatar, class: "group-avatar" %>
-  <% end %>
-  <h1><%= group.title %></h1>
-  <p><%= group.description %></p>
-
+  <div class="group-details">
+    <div class="group-title">
+      <%= group.title %>
+    </div>
+    <div class="group-description">
+      <%= group.description %>
+    </div>
+  </div>
   <% if current_user.id == admin_id %>
     <div class="admin-actions">
-      <%= link_to "Edit this group", edit_group_path(group), class: "edit-group-button" %>
-      <%= link_to "Back to groups", groups_path, class: "back-to-groups-button" %>
+      <%= button_to "Edit this group", edit_group_path(group), method: :get, class: "edit-group-button" %>
       <%= button_to "Destroy this group", group, method: :delete, data: { confirm: "Are you sure?" }, class: "destroy-group-button" %>
     </div>
   <% end %>
