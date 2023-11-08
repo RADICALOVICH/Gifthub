@@ -16,3 +16,124 @@
 .navbar-text-right {
   justify-content: right;
 }
+
+.group_buttons{
+  margin-bottom: 15px;
+}
+
+.card {
+  display: flex;
+}
+
+
+
+
+
+/* страница пользователей */
+
+.user-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info {
+  flex: 1;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+
+.delete-button-container {
+  margin-right: 10px;
+}
+
+.delete-button {
+  background-color: #FF5555; /* Цвет фона кнопки удаления */
+  color: #fff; /* Цвет текста на кнопке */
+  padding: 5px 10px; /* Отступы вокруг текста на кнопке */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #FF3333; /* Цвет фона кнопки при наведении */
+}
+
+
+/* кнопка инвайта */
+.invite-button {
+  display: inline-block;
+  background-color: #007BFF; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста */
+  padding: 10px 20px; /* Отступы вокруг текста */
+  border: none; /* Убрать границу кнопки */
+  border-radius: 5px; /* Скругленные углы */
+  text-decoration: none; /* Убрать подчеркивание */
+  font-size: 16px; /* Размер шрифта */
+  cursor: pointer; /* Изменить курсор при наведении */
+  transition: background-color 0.3s, color 0.3s; /* Плавное изменение цвета фона и текста при наведении */
+}
+
+.invite-button:hover {
+  background-color: #0056b3; /* Новый цвет фона при наведении */
+  color: #fff; /* Новый цвет текста при наведении */
+}
+
+/* страница информации о группе */
+/* styles.css */
+
+.group-info {
+  text-align: center;
+  margin: 20px;
+}
+
+.group-avatar {
+  max-width: 200px;
+  max-height: 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.group-title {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.group-description {
+  color: #777;
+  margin: 10px 0;
+}
+
+.admin-actions {
+  margin: 20px 0;
+}
+
+.edit-group-button, .back-to-groups-button, .destroy-group-button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-group-button:hover, .back-to-groups-button:hover, .destroy-group-button:hover {
+  background-color: #0056b3;
+}

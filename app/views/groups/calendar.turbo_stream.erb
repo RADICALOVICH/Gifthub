@@ -1,1 +1,1 @@
-<%= turbo_stream.update 'response-container', partial: 'calendar_page' %>
+<%= turbo_stream.update 'response-container', partial: 'calendar_page', locals: {start_date: params[:start_date]} %>

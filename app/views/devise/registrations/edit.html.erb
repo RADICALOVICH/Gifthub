@@ -4,6 +4,21 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :first_name, 'Имя' %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: 'first_name' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, 'Фамилия' %><br />
+    <%= f.text_field :last_name, autocomplete: 'last_name' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth, 'Дата рождения' %><br />
+    <%= f.date_field :date_of_birth, autocomplete: 'date_of_birth' %>
+  </div>
+
+  <div class="field">
     <%= f.label 'Электронная почта' %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -31,6 +46,7 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  
   <div class="actions">
     <%= f.submit "Обновить" %>
   </div>

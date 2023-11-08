@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Groups</h1>
+<h1>Мои коллективы</h1>
 
-<div id="groups">
+<div id="groups" style="display: flex; flex-wrap: wrap;">
   <% @groups.each do |group| %>
-    <%= group.title %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
+    <div class="card" style="width: 18rem; margin: 10px;">
+      <div class="card-body">
+        <h5 class="card-title"> <%= group.title %> </h5>
+        <p class="card-text"> <%= group.description %> </p>
+        <a href="#" class="card-link"><%= link_to "Показать эту группу", group %></a>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New group", new_group_path %>

@@ -1,0 +1,131 @@
+/* .simple-calendar {
+
+.day {}
+
+.wday-0 {}
+.wday-1 {}
+.wday-2 {}
+.wday-3 {}
+.wday-4 {}
+.wday-5 {}
+.wday-6 {}
+
+.today {}
+.past {}
+.future {}
+
+.start-date {}
+
+.prev-month {}
+.next-month { }
+
+
+} */
+
+.simple-calendar .future
+{
+    font-weight: 500;
+}
+
+.simple-calendar
+{
+    background-color: rgb(199, 217, 255);
+}
+.simple-calendar .day
+{
+    background-color: rgb(199, 217, 255);
+    height: 130px;
+}
+.simple-calendar .has-events
+{
+    background-color: rgb(241, 195, 249);
+}
+.simple-calendar .today
+{
+    background-color: rgb(168, 180, 246);
+}
+.simple-calendar .prev-month, .simple-calendar .next-month 
+{
+    font-style: italic;
+    background-color: rgb(171, 193, 223);
+}
+
+
+.btn{
+    border: 3px solid #1a1a1a;
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    transition: background 600ms ease, color 600ms ease;
+}
+
+input[type="radio"].toggle {
+    display: none;
+    & + label{
+        cursor: pointer;
+        min-width: 60px;
+        &:hover{
+            background: none;
+            color: #1a1a1a;
+        }
+        &:after{
+            background: #1a1a1a;
+            content: "";
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+            width: 100%;
+            z-index: -1;
+        }
+    }
+    &.toggle-left + label {
+        border-right: 0;
+        &:after{
+            left: 100%
+        }
+    }
+    &.toggle-right + label{
+        margin-left: -5px;
+        &:after{
+            left: -100%;
+        }
+    }
+    &:checked + label {
+        cursor: default;
+        color: #fff;
+        transition: color 200ms;
+        &:after{
+            left: 0;
+        }
+    }
+}
+
+.calendar_button
+{
+    float: top;
+    border: 2px rgb(74, 78, 184) solid;
+    color: rgb(74, 78, 184);
+    border-radius: 90px;
+    text-decoration: none;
+    height: 25px;
+    width:  25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(220, 238, 255);
+}
+.calendar_button:hover
+{
+    background-color: #567ec9;
+    color:white;
+}
+
+.task_for_calendar
+{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid rgb(205, 151, 255)
+}

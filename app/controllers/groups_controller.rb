@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[ show edit update destroy]
+  before_action :set_group, only: %i[ show edit update destroy calendar]
   before_action :authenticate_user!, only: %i[ new show edit update create destroy index]
 
   # GET /groups or /groups.json
@@ -54,7 +54,6 @@ class GroupsController < ApplicationController
   # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
-
     respond_to do |format|
       format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
       format.json { head :no_content }
@@ -69,7 +68,7 @@ class GroupsController < ApplicationController
   end
 
   def calendar
-
+    @members = @group.users
   end
 
   def information

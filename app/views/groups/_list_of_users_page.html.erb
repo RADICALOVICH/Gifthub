@@ -1,7 +1,17 @@
-<% users.each do |user| %>
- <%= user.first_name %>
+<% if current_user.id == admin_id %>
+  <%= link_to "Пригласить человека", "/groups/#{group.id}/invite_users", class: "invite-button" %>
 <% end %>
 
-<% if current_user.id == admin_id %>
-  <%= link_to "Пригласить человека", "/groups/#{group.id}/invite_users" %>
+<% @users.each do |user| %>
+  <div class="user-card">
+    <div class="user-info">
+      <h2><%= user.first_name %> <%= user.last_name %></h2>
+      <p>Дата рождения: <%= user.date_of_birth %></p>
+    </div>
+    <% if current_user.id == admin_id %>
+      <div class="delete-button-container">
+        <%= button_to "Удалить пользователя", "/users/#{user.id}", method: :delete, class: "delete-button" %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
