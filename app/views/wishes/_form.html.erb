@@ -1,25 +1,25 @@
-<%= form_with(model: wish) do |form| %>
+<%= form_with(model: wish, html: { class: 'form-container' }) do |form| %>
   <div class="field">
     <%= form.label :title, 'Название' %><br />
-    <%= form.text_field :title, autofocus: true %>
+    <%= form.text_field :title, class: 'text-field', autofocus: true %>
   </div>
 
   <div class="field">
     <%= form.label :short_description, 'Краткое описание' %><br />
-    <%= form.text_field :short_description%>
+    <%= form.text_field :short_description, class: 'text-field' %>
   </div>
 
   <div class="field">   
     <%= form.label :url, 'Ссылка на пример похожего подарка' %><br />
-    <%= form.text_field :url%>
+    <%= form.text_field :url, class: 'text-field' %>
   </div>
 
   <div class="field">
     <%= form.label :picture, 'Фото' %><br />
-    <%= form.file_field :picture %>
+    <%= form.file_field :picture, class: 'file-field' %>
   </div>
 
   <div>
-    <%= form.submit "Создать" %>
+    <%= form.submit "Создать", class: 'submit-button' %>
   </div>
 <% end %>

@@ -1,44 +1,46 @@
-<h2>Регистрация</h2>
+<div class="registration-container">
+  <h2>Регистрация</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :first_name, 'Имя' %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: 'first_name' %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-container' }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
+    <div class="field">
+      <%= f.label :first_name, 'Имя' %><br />
+      <%= f.text_field :first_name, class: 'text-field', autofocus: true, autocomplete: 'first_name' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :last_name, 'Фамилия' %><br />
-    <%= f.text_field :last_name %>
-  </div>
+    <div class="field">
+      <%= f.label :last_name, 'Фамилия' %><br />
+      <%= f.text_field :last_name, class: 'text-field' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :date_of_birth, 'Дата рождения' %><br />
-    <%= f.date_field :date_of_birth %>
-  </div>
+    <div class="field">
+      <%= f.label :date_of_birth, 'Дата рождения' %><br />
+      <%= f.date_field :date_of_birth, class: 'date-field' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email, 'Почта' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :email, 'Почта' %><br />
+      <%= f.email_field :email, class: 'text-field', autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password, 'Пароль' %>
-    <% if @minimum_password_length %>
-    <em>(минимум <%= @minimum_password_length %> символов)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password, 'Пароль' %>
+      <% if @minimum_password_length %>
+        <em>(минимум <%= @minimum_password_length %> символов)</em>
+      <% end %><br />
+      <%= f.password_field :password, class: 'text-field', autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, 'Подтвердите пароль' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation, 'Подтвердите пароль' %><br />
+      <%= f.password_field :password_confirmation, class: 'text-field', autocomplete: "new-password" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Зарегистрироваться" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Зарегистрироваться", class: 'submit-button' %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>

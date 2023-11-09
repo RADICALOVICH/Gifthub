@@ -162,6 +162,8 @@ h2 {
   background-color: #0033ff; /* Изменение цвета при наведении */
 }
 
+
+/* home */
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -179,5 +181,157 @@ h2 {
   display: flex !important;
   justify-content: center;
   align-items: center;
+}
+
+/* app/assets/stylesheets/wishes.css */
+
+.form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.text-field {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.date-field {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.password-field {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.file-field {
+  margin-top: 8px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+.delete-account-button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-account-button:hover {
+  background-color: #bd2130;
+}
+.link-button {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: #0056b3;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-button,
+.delete-account-button {
+  width: 48%; /* Добавим равные ширины обоим кнопкам */
+}
+
+.back-to-link {
+  display: inline-block;
+  margin-bottom: 20px; /* Добавим отступ снизу */
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.back-to-link:hover {
+  background-color: #218838;
+}
+
+
+/* buttons devise */
+/* Общие стили для кнопок */
+.button {
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Кнопка для входа */
+.button.login-button {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Кнопка для регистрации */
+.button.register-button {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+/* Кнопка для восстановления пароля */
+.button.forgot-password-button {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+/* Кнопка для повторной отправки подтверждения профиля */
+.button.resend-confirmation-button {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+/* Кнопка для инструкций по разблокировке */
+.button.unlock-instructions-button {
+  background-color: #9b59b6;
+  color: #fff;
+}
+
+/* Кнопка для входа через соцсети */
+.button.omniauth-button {
+  background-color: #34495e;
+  color: #fff;
 }
 
