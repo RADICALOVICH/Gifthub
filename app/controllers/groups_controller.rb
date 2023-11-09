@@ -106,6 +106,19 @@ class GroupsController < ApplicationController
     end
   end
 
+  def quit_group
+    @group = Group.find(params[:id])
+    member = @group.members.find_by(user_id: current_user.id)
+    if current_user && !member.is_admin
+      member.destroy
+      redirect_to groups_path, notice: "Вы успешно вышли из группы."
+    elsif member.is_admin
+      redirect_to groups_path, alert: "Вы не можете выйти из группы, так как являетесь администратором."
+    else
+      redirect_to groups_path, alert: "Не удалось выйти из группы."
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group

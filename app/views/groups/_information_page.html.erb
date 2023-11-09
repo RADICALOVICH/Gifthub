@@ -9,8 +9,10 @@
   </div>
   <% if current_user.id == admin_id %>
     <div class="admin-actions">
-      <%= button_to "Edit this group", edit_group_path(group), method: :get, class: "edit-group-button" %>
-      <%= button_to "Destroy this group", group, method: :delete, data: { confirm: "Are you sure?" }, class: "destroy-group-button" %>
+      <%= button_to "Обновить информацию о группе", edit_group_path(group), method: :get, class: "edit-group-button" %>
+      <%= button_to "Уничтожить группу", group, method: :delete, data: { confirm: "Are you sure?" }, class: "destroy-group-button" %>
     </div>
+  <% else %>
+    <%= button_to "Выйти из группы", quit_group_group_path(group), method: :delete , class: "delete-button" %>
   <% end %>
 </div>

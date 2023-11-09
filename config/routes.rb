@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :groups do
     member do
       delete 'remove_user/:user_id', action: :remove_user, as: 'remove_user'
+      delete 'quit_group', action: :quit_group, as: 'quit_group'
     end
   end
   devise_for :users
