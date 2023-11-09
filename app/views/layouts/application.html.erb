@@ -31,9 +31,6 @@
           <button type="button" class="btn btn-outline-light me-2 text-bg-dark"><%= link_to "Зарегистрироваться", new_user_registration_path, class: 'nav-link px-2 text-dark' %></button>
         </li>
         <% else %>
-        <li class="nav-item">
-          <button type="button" class="btn btn-outline-light me-2 text-bg-dark"><%= link_to "Создать коллектив", new_group_path, class: 'nav-link px-2 text-dark' %></button>
-        </li>
         <li class="nav-item dropdown mr-auto btn btn-outline-light me-2 text-bg-dark">
           <a class="nav-link dropdown-toggle nav-link px-2 text-black" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <%= current_user.first_name %> <%= current_user.last_name %>

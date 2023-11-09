@@ -162,3 +162,22 @@ h2 {
   background-color: #0033ff; /* Изменение цвета при наведении */
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: calc(100vh - 66px);
+}
+
+.home_bttn {
+  width: 400px;
+  aspect-ratio: 1 / 1;
+  &:nth-child(2) {
+    margin-left: -200px;
+  }
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+

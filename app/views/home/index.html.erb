@@ -1,2 +1,9 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Добро пожаловать на домашнюю страницу</h1>
+
+<% if user_signed_in? %>
+  <div class="flex-container">
+    <%= link_to "Создать пожелание", new_wish_path, class: "btn btn-primary btn-lg home_bttn", style: "" %>
+    <%= link_to "Создать коллектив", new_group_path, class: "home_bttn btn btn-primary btn-lg", style: "" %>
+  </div>
+  
+<% end %>
