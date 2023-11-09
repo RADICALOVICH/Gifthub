@@ -1,0 +1,27 @@
+<!-- views/users/show.html.erb -->
+
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+<% end %>
+
+<div class="user-show-container">
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+  <div class="user-details">
+    <p>Дата рождения: <%= @user.date_of_birth %></p>
+    <hr>
+  </div>
+
+<h2>Пожелания пользователя</h2>
+
+<div id="wishes">
+  <% @wishes.each do |wish| %>
+    <div class="wish-card">
+      <div class="wish-details">
+        <div class="wish-title"><%= wish.title %></div>
+        <div class="wish-description"><%= wish.short_description %></div>
+      </div>
+      <a href="<%= wish_path(wish) %>" class="wish-link">Подробнее</a>
+    </div>
+  <% end %>
+</div>

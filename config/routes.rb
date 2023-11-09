@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
+  resources :users, only: [:show]
+  
   root 'home#index'
   
   post 'groups/list_of_users/:id', to: 'groups#list_of_users'

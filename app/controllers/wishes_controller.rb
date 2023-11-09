@@ -31,7 +31,7 @@ class WishesController < ApplicationController
     )
     if @wish.save
       flash[:notice] = 'Пожелание создано успешно'
-      redirect_to wish_url(@wish)
+      redirect_to root_path
     else
       flash[:alert] = "Ошибки в заполнении полей: #{@wish.errors.details}"
       redirect_to new_wish_path
