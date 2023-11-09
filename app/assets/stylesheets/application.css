@@ -366,12 +366,11 @@ hr {
   margin-bottom: 20px;
 }
 
-/* assets/stylesheets/wishes.css */
 
 #wishes {
   display: flex;
+  justify-content: space-around; 
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .wish-card {

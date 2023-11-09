@@ -1,13 +1,13 @@
 <h1>Мои коллективы</h1>
 
-<div id="groups" style="display: flex; flex-wrap: wrap;">
+<div id="wishes">
   <% @groups.each do |group| %>
-    <div class="card" style="width: 18rem; margin: 10px;">
-      <div class="card-body">
-        <h5 class="card-title"> <%= group.title %> </h5>
-        <p class="card-text"> <%= group.description %> </p>
-        <a href="#" class="card-link"><%= link_to "Показать эту группу", group %></a>
+    <div class="wish-card">
+      <div class="wish-details">
+        <div class="wish-title"><%= group.title %></div>
+        <div class="wish-description"><%= group.description %></div>
       </div>
+      <a href="<%= group_path(group) %>" class="wish-link">Подробнее</a>
     </div>
   <% end %>
 </div>
