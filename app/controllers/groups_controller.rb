@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    @members = @group.users
   end
 
   # GET /groups/new
@@ -67,9 +68,9 @@ class GroupsController < ApplicationController
     @admin_id = Member.find_by(group_id: params[:id], is_admin: true).user_id
   end
 
-  def calendar
-    @members = @group.users
-  end
+  # def calendar
+  #   @members = @group.users
+  # end
 
   def information
     @group = Group.find(params[:id])
@@ -93,6 +94,8 @@ class GroupsController < ApplicationController
   
   def send_email
     GroupMailer.invite(params[:user_id], params[:group_id]).deliver_later
+    redirect_to group_path(id: params[:group_id])
+    flash[:notice] = 'Пользователь успешно приглашен.'
   end
 
   def remove_user

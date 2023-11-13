@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :members
   has_many :wishes
   has_many :groups, through: :members
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+  
 end

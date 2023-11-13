@@ -1,27 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
 <div id="change_buttons" style="text-align: center;">
   <div class="group_buttons" style="display: flex; justify-content: center;">
-    <% if current_page?(:controller => 'groups', :action => 'show') %>
-      <%= button_to "Члены группы", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-      <%= button_to 'Календарь', "/groups/calendar/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-      <%= button_to 'Информация о группе', "/groups/information/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-    <% end %>
-    <% if current_page?(:controller => 'groups', :action => 'list_of_users') %>
-      <%= button_to "Члены группы", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary disabled', style: 'margin-right: 10px;' %>
-      <%= button_to 'Календарь', "/groups/calendar/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-      <%= button_to 'Информация о группе', "/groups/information/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-    <% end %>
-    <% if current_page?(:controller => 'groups', :action => 'calendar') %>
-      <%= button_to "Члены группы", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-      <%= button_to 'Календарь', "/groups/calendar/#{@group.id}", class: 'btn btn-primary disabled', style: 'margin-right: 10px;' %>
-      <%= button_to 'Информация о группе', "/groups/information/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-    <% end %>
-    <% if current_page?(:controller => 'groups', :action => 'information') %>
-      <%= button_to "Члены группы", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-      <%= button_to 'Календарь', "/groups/calendar/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
-      <%= button_to 'Информация о группе', "/groups/information/#{@group.id}", class: 'btn btn-primary disabled', style: 'margin-right: 10px;' %>
-    <% end %>
+    <%= button_to "Члены группы", "/groups/list_of_users/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
+    <%= button_to 'Календарь', { controller: 'groups', action: 'show', id: @group.id }, method: :get, class: 'btn btn-primary', style: 'margin-right: 10px;' %>
+    <%= button_to 'Информация о группе', "/groups/information/#{@group.id}", class: 'btn btn-primary', style: 'margin-right: 10px;' %>
   </div>
 </div>
-<div id='response-container'></div>
+<div id='response-container'>
+  <%= month_calendar() do |date| %>
+    <div style="display: flex;justify-content:space-between">
+      <%= date %>
+    </div>
+    <% @members.each do |member| %>
+        <% if member.date_of_birth.month == date.month && member.date_of_birth.day == date.day%>
+          <div>
+            <%= link_to "#{member.first_name} #{member.last_name}", user_path(member) %>
+          </div>
+        <%end%>
+      </div>
+    <% end %>
+  <% end %>
+</div>
