@@ -269,10 +269,6 @@ label {
   align-items: center;
 }
 
-.submit-button,
-.delete-account-button {
-  width: 48%; /* Добавим равные ширины обоим кнопкам */
-}
 
 .back-to-link {
   display: inline-block;
@@ -437,7 +433,7 @@ hr {
 
 }
 
-.submit-button {
+/* .submit-button {
   background-color: #4CAF50;
   color: white;
 }
@@ -445,4 +441,4 @@ hr {
 .select-field:hover,
 .submit-button:hover {
   background-color: #22c813;
-}
+} */
