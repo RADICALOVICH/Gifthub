@@ -1,15 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 
- <%= @wish.title %>
-  <% if @wish.picture.present?%>
-    <div> <%= image_tag(@wish.picture) %></div>
+<div class="wish-details-card">
+  <h2><%= @wish.title %></h2>
+  <h6><%= @wish.short_description%></h6>
+  <% if @wish.picture.present? %>
+    <div><%= image_tag(@wish.picture) %></div>
   <% end %>
-  
-<div>
-  <%= link_to "Edit this wish", edit_wish_path(@wish) %> |
-  <%= link_to "Back to wishes", wishes_path %>
 
-  <%= button_to "Destroy this wish", @wish, method: :delete %>
+  <div class="actions">
+    <div>
+      <%= link_to "Редактировать пожелание", edit_wish_path(@wish), class: 'edit-button' %>
+    </div>
+
+    <div>
+      <%= link_to "Обратно в профиль", wishes_path, class: 'back-button' %>
+    </div>
+
+    <div>
+      <%= button_to "Удалить пожелание", @wish, method: :delete, class: 'del-but' %>
+    </div>
+  </div>
 </div>
-
-

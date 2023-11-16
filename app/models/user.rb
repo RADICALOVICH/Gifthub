@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :async
   
-  has_many :members
-  has_many :wishes
+  has_many :members, dependent: :destroy
+  has_many :wishes, dependent: :destroy
   has_many :groups, through: :members
 
   def full_name

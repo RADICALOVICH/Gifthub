@@ -56,7 +56,7 @@ class WishesController < ApplicationController
     @wish.destroy
 
     respond_to do |format|
-      format.html { redirect_to wishes_url, notice: "Wish was successfully destroyed." }
+      format.html { redirect_to user_path(current_user.id), notice: "Wish was successfully destroyed." }
       format.json { head :no_content }
     end
   end
